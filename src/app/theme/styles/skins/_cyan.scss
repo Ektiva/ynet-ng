@@ -1,0 +1,5 @@
+$cyan-primary: mat-palette($mat-lime, 700, 50, 900);
+$cyan-accent: mat-palette($mat-grey, 300, 100, 700);
+$cyan-warn: mat-palette($mat-red, 500, A200, 800);
+
+$cyan-theme: mat-light-theme($cyan-primary, $cyan-accent, $cyan-warn);
