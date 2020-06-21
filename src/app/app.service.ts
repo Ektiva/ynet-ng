@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Category, Product } from './app.models';
+import { Category, Product, IPagination, IBrand, IProduct } from './app.models';
+import { map, delay } from 'rxjs/operators';
+import { ICategory } from './shared/models/category';
+import { ShopParams } from "./shared/models/ShopParams";
 
 export class Data {
     constructor(public categories: Category[],
@@ -13,7 +16,9 @@ export class Data {
                 public totalCartCount: number) { }
 }
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+  })
 export class AppService {
     public Data = new Data(
         [], // categories
@@ -23,16 +28,116 @@ export class AppService {
         null, //totalPrice,
         0 //totalCartCount
     )
+    
+    totalCount = new BehaviorSubject<number>(0);
+    currentTotalCount = this.totalCount.asObservable();
+
+    page = new BehaviorSubject<any>(1);
+    currentPage= this.page.asObservable();
+
+    products = new BehaviorSubject<Array<IProduct>>([]);
+    currentProducts = this.products.asObservable();
+
+    category = new BehaviorSubject<string>('All Categories');
+    currentCategory = this.category.asObservable();
+
+    shopParams = new BehaviorSubject<ShopParams>(
+        {brandId: [-1], CategoryId: 0, sort: 'name', pageNumber: 1, pageSize: 6, search: ''}
+    );
+    currentShopParams = this.shopParams.asObservable();
+
     public url = "assets/data/";
+    public baseUrl = 'https://localhost:44373/api/';
     constructor(public http:HttpClient, public snackBar: MatSnackBar) { }
+
+    changeProducts(products: IProduct[]){
+        this.products.next(products);
+    }
+    changeCategory(category: string){
+        this.category.next(category);
+    }
+    changeShopParams(shopParams: ShopParams){
+        this.shopParams.next(shopParams);
+    }
+    changeTotalCount(totalCount: number){
+        this.totalCount.next(totalCount);
+    }
+
+    changePage(page: any){
+        this.page.next(page);
+    }
     
     public getCategories(): Observable<Category[]>{
-        return this.http.get<Category[]>(this.url + 'categories.json');
+         // return this.http.get<Category[]>(this.url + 'categories.json');
+        return this.http.get<Category[]>(this.baseUrl + 'Category');
     }
    
     public getProducts(type): Observable<Product[]>{        
         return this.http.get<Product[]>(this.url + type + '-products.json');
     }
+
+    getProductss() {
+        return this.http.get<IPagination>(this.baseUrl + 'items?pageSize=50');
+    }
+
+    getProductsByCategory(catId) {
+        return this.http.get<IPagination>(this.baseUrl + 'items?CategoryId=' +catId);
+    }
+
+    getItems(shopParams: ShopParams) {
+        let params = new HttpParams();
+        shopParams.brandId.forEach(brandIdSlected =>{
+            if (brandIdSlected !== -1) {
+                params = params.append('brandId', brandIdSlected.toString());
+            }
+        });
+
+        if (shopParams.CategoryId) {
+            params = params.append('categoryId', shopParams.CategoryId.toString());
+        }
+
+        if (shopParams.search) {
+            params = params.append('search', shopParams.search);
+        }
+
+        params = params.append('sort', shopParams.sort);
+        params = params.append('pageIndex', shopParams.pageNumber.toString());
+        // params = params.append('pageSize', shopParams.pageSize.toString());
+
+        return this.http.get<IPagination>(this.baseUrl + 'items', {observe: 'response', params})
+        .pipe(
+            map(response => {
+              return response.body;
+            })
+          );
+    }
+
+    
+    getBrandss() {
+    // if (this.brands.length > 0) {
+    //   return of(this.brands);
+    // }
+    return this.http.get<IBrand[]>(this.baseUrl + 'items/brands');
+    // return this.http.get<IBrand[]>(this.baseUrl + 'products/brands').pipe(
+    //   map(response => {
+    //     this.brands = response;
+    //     return response;
+    //   })
+    // );
+    }
+
+    getCategorys() {
+        // if (this.types.length > 0) {
+        //   return of(this.types);
+        // }
+        return this.http.get<ICategory[]>(this.baseUrl + 'items/categorys');
+        // return this.http.get<IType[]>(this.baseUrl + 'products/types').pipe(
+        //   map(response => {
+        //     this.types = response;
+        //     return response;
+        //   })
+        // );
+      }
 
     public getProductById(id): Observable<Product>{
         return this.http.get<Product>(this.url + 'product-' + id + '.json');

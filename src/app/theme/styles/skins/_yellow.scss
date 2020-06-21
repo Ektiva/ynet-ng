@@ -1,0 +1,5 @@
+$yellow-primary: mat-palette($mat-yellow, 700, 50, 900);
+$yellow-accent: mat-palette($mat-grey, 300, 100, 700);
+$yellow-warn: mat-palette($mat-red, 500, A200, 800);
+
+$yellow-theme: mat-light-theme($yellow-primary, $yellow-accent, $yellow-warn);

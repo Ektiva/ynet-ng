@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { AppService } from 'src/app/app.service';
 
 @Component({
   selector: 'app-category-list',
@@ -9,10 +10,15 @@ export class CategoryListComponent {
 
   @Input() categories;
   @Input() categoryParentId;
+  @Input() categoryUp;
   @Output() change: EventEmitter<any> = new EventEmitter();
+
+  public categorySelected: number;
+
+  // @Output() click  = new EventEmitter();
   mainCategories;
 
-  constructor() { }
+  constructor(public appService:AppService) { }
 
   public ngDoCheck() {
     if(this.categories && !this.mainCategories) {
@@ -29,6 +35,22 @@ export class CategoryListComponent {
 
   public changeCategory(event){
     this.change.emit(event);
+    if(event.target){
+      if(event.target.innerText.toLowerCase() === 'all categories'){
+        this.categorySelected = 0;
+      }else{
+        var keepGoing = true;
+        this.categories.forEach(cat => {
+          if(keepGoing){
+            if (cat.name.toLowerCase() === event.target.innerText.toLowerCase()) {
+              this.categorySelected = cat.id;
+              keepGoing = false;
+            }
+          }
+        });
+      }  
+    }    
+    this.appService.changeCategory(event.target.innerText);
   }
 
 }

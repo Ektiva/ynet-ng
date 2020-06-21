@@ -25,6 +25,7 @@ import { AppService } from './app.service';
 import { AppInterceptor } from './theme/utils/app-interceptor';
 import { OptionsComponent } from './theme/components/options/options.component';
 import { FooterComponent } from './theme/components/footer/footer.component';
+import { ShopModule } from './shop/shop.module';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { FooterComponent } from './theme/components/footer/footer.component';
       apiKey: 'AIzaSyA1rF9bttCxRmsNdZYjW7FzIoyrul5jb-s'
     }),
     SharedModule,
-    routing
+    routing,
+    ShopModule
   ],
   declarations: [
     AppComponent,

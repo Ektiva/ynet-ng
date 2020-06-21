@@ -38,4 +38,14 @@
         @include angular-material-theme($cyan-theme);
         @include theme-reset($cyan-theme);
     }
+    &.orange{
+        @import "skins/orange";
+        @include angular-material-theme($orange-theme);
+        @include theme-reset($orange-theme);
+    }
+    &.yellow{
+        @import "skins/yellow";
+        @include angular-material-theme($yellow-theme);
+        @include theme-reset($yellow-theme);
+    }
 }

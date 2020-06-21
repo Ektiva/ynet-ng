@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
+import { IBrand } from 'src/app/app.models';
 
 @Component({
   selector: 'app-brands-carousel',
@@ -8,7 +9,7 @@ import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 })
 export class BrandsCarouselComponent {
 
-  @Input('brands') brands: Array<any> = [];
+  @Input() brands;
 
   public config: SwiperConfigInterface = { };
   

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../app.service';
-import { Product } from "../../app.models";
+import { Product, IBrand } from "../../app.models";
 
 @Component({
   selector: 'app-home',
@@ -17,7 +17,8 @@ export class HomeComponent implements OnInit {
     { title: 'The biggest sale', subtitle: 'Special for today', image: 'assets/images/carousel/banner5.jpg' }
   ];
 
-  public brands = [];
+  public brands: IBrand[];
+  // public brands = [];
   public banners = [];
   public featuredProducts: Array<Product>;
   public onSaleProducts: Array<Product>;
@@ -68,7 +69,20 @@ export class HomeComponent implements OnInit {
   }
 
   public getBrands(){
-    this.brands = this.appService.getBrands();
+    // this.brands = this.appService.getBrands();
+    // this.brands.forEach(function (value){
+    //       console.log(value.image);
+    //     });
+    // this.brands = this.appService.getBrands();
+    console.log('I am here');
+    this.appService.getBrandss().subscribe(response => {
+      this.brands = response /*[{ id: 0, name: 'All' }, ...response]*/;
+      this.brands.forEach(function (value){
+        console.log(value.imageUrl);
+      });
+    }, error => {
+      console.log(error);
+    });
   }
 
 }
