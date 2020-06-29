@@ -21,6 +21,8 @@ export class PagesComponent implements OnInit {
   public categorySelected: number;
   public categoryNameSelected = 'All Categories';
   public page:any;
+  shopParams = new ShopParams();
+  totalCount: number;
 
   public showBackToTop:boolean = false; 
   public categories:Category[];
@@ -28,8 +30,7 @@ export class PagesComponent implements OnInit {
   public sidenavMenuItems:Array<any>;
   @ViewChild('sidenav', { static: true }) sidenav:any;
 
-  shopParams = new ShopParams();
-  totalCount: number;
+  
 
   public settings: Settings;
   constructor(public appSettings:AppSettings, 

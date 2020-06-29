@@ -1,0 +1,5 @@
+<div [fxLayout]="direction" [fxLayoutAlign]="(direction == 'row') ? 'start center' : 'center end'">    
+    <div class="ratings">        
+         <mat-icon *ngFor="let star of stars; let i=index;" class="mat-icon-xs" >{{star}}</mat-icon>
+    </div> 
+</div>

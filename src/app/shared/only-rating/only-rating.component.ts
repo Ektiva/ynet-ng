@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-rating',
-  templateUrl: './rating.component.html',
-  styleUrls: ['./rating.component.scss']
+  selector: 'app-only-rating',
+  templateUrl: './only-rating.component.html',
+  styleUrls: ['./only-rating.component.scss']
 })
-export class RatingComponent {
+export class OnlyRatingComponent {
   @Input() ratingsCount:number;
   @Input() ratingsValue:number;
   @Input() direction:string;

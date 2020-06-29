@@ -61,8 +61,11 @@ export class ProductComponent implements OnInit {
   }
 
   public getProductById(id){
-    this.appService.getProductById(id).subscribe(data=>{
+    this.appService.getItem(id).subscribe(data=>{
       this.product = data;
+      if(this.product.oldPrice == this.product.newPrice){
+        this.product.oldPrice = null;
+      }
       this.image = data.images[0].medium;
       this.zoomImage = data.images[0].big;
       setTimeout(() => { 

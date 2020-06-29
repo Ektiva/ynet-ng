@@ -1,0 +1,411 @@
+
+{
+  "header": {
+    "reportVersion": 1,
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "trigger": "FatalError",
+    "filename": "report.20200621.044801.82952.0.001.json",
+    "dumpEventTime": "2020-06-21T04:48:02Z",
+    "dumpEventTimeStamp": "1592729282262",
+    "processId": 82952,
+    "cwd": "C:\\MyProjects\\ynet-ng",
+    "commandLine": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\ektiv\\AppData\\Roaming\\npm/node_modules/@angular/cli/bin/ng",
+      "serve"
+    ],
+    "nodejsVersion": "v12.13.0",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "win32",
+    "componentVersions": {
+      "node": "12.13.0",
+      "v8": "7.7.299.13-node.12",
+      "uv": "1.32.0",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "72",
+      "nghttp2": "1.39.2",
+      "napi": "5",
+      "llhttp": "1.1.4",
+      "http_parser": "2.8.0",
+      "openssl": "1.1.1d",
+      "cldr": "35.1",
+      "icu": "64.2",
+      "tz": "2019a",
+      "unicode": "12.1"
+    },
+    "release": {
+      "name": "node",
+      "lts": "Erbium",
+      "headersUrl": "https://nodejs.org/download/release/v12.13.0/node-v12.13.0-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v12.13.0/node-v12.13.0.tar.gz",
+      "libUrl": "https://nodejs.org/download/release/v12.13.0/win-x64/node.lib"
+    },
+    "osName": "Windows_NT",
+    "osRelease": "10.0.17763",
+    "osVersion": "Windows 10 Pro",
+    "osMachine": "x86_64",
+    "cpus": [
+      {
+        "model": "Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz",
+        "speed": 1992,
+        "user": 51197109,
+        "nice": 0,
+        "sys": 46512656,
+        "idle": 309349437,
+        "irq": 3217515
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz",
+        "speed": 1992,
+        "user": 47491093,
+        "nice": 0,
+        "sys": 39207937,
+        "idle": 320359921,
+        "irq": 1377500
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz",
+        "speed": 1992,
+        "user": 59243828,
+        "nice": 0,
+        "sys": 47884531,
+        "idle": 299930593,
+        "irq": 959468
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz",
+        "speed": 1992,
+        "user": 57644703,
+        "nice": 0,
+        "sys": 45461015,
+        "idle": 303953234,
+        "irq": 565765
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz",
+        "speed": 1992,
+        "user": 50221812,
+        "nice": 0,
+        "sys": 46365890,
+        "idle": 310471250,
+        "irq": 986953
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz",
+        "speed": 1992,
+        "user": 46371671,
+        "nice": 0,
+        "sys": 44416234,
+        "idle": 316271031,
+        "irq": 729703
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz",
+        "speed": 1992,
+        "user": 57439875,
+        "nice": 0,
+        "sys": 53361937,
+        "idle": 296257125,
+        "irq": 657531
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz",
+        "speed": 1992,
+        "user": 56051671,
+        "nice": 0,
+        "sys": 51437500,
+        "idle": 299569765,
+        "irq": 445390
+      }
+    ],
+    "host": "DESKTOP-SEQBUVB"
+  },
+  "javascriptStack": {
+    "message": "No stack.",
+    "stack": [
+      "Unavailable."
+    ]
+  },
+  "nativeStack": [
+    {
+      "pc": "0x00007ff76df01389",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff76df057cc",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff76df04778",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff76dff332b",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff76e7f6f4e",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff76e7def91",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff76e6ac85c",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff76e6b4961",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff76e6a9fc3",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff76e6a8794",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff76e6c9a65",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff76e436239",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff76ec22c6d",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff76ebe0c0f",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff76eb9df0a",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff76ec83a90",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff76eba27fc",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff76eb9de10",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff76ec83a90",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff76eba27fc",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff76eba27fc",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff76eba27fc",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff76eba27fc",
+      "symbol": ""
+    },
+    {
+      "pc": "0x0000007b686750aa",
+      "symbol": ""
+    }
+  ],
+  "javascriptHeap": {
+    "totalMemory": 386498560,
+    "totalCommittedMemory": 386498560,
+    "usedMemory": 358877336,
+    "availableMemory": 1838697792,
+    "memoryLimit": 2197815296,
+    "heapSpaces": {
+      "read_only_space": {
+        "memorySize": 262144,
+        "committedMemory": 262144,
+        "capacity": 261872,
+        "used": 32296,
+        "available": 229576
+      },
+      "new_space": {
+        "memorySize": 1048576,
+        "committedMemory": 1048576,
+        "capacity": 1047488,
+        "used": 1047488,
+        "available": 0
+      },
+      "old_space": {
+        "memorySize": 277721088,
+        "committedMemory": 277721088,
+        "capacity": 277161744,
+        "used": 265231320,
+        "available": 11930424
+      },
+      "code_space": {
+        "memorySize": 4096000,
+        "committedMemory": 4096000,
+        "capacity": 3682848,
+        "used": 3223776,
+        "available": 459072
+      },
+      "map_space": {
+        "memorySize": 17305600,
+        "committedMemory": 17305600,
+        "capacity": 17286176,
+        "used": 3571680,
+        "available": 13714496
+      },
+      "large_object_space": {
+        "memorySize": 85442560,
+        "committedMemory": 85442560,
+        "capacity": 85220376,
+        "used": 85220376,
+        "available": 0
+      },
+      "code_large_object_space": {
+        "memorySize": 622592,
+        "committedMemory": 622592,
+        "capacity": 550400,
+        "used": 550400,
+        "available": 0
+      },
+      "new_large_object_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 1047488,
+        "used": 0,
+        "available": 1047488
+      }
+    }
+  },
+  "resourceUsage": {
+    "userCpuSeconds": 164.312,
+    "kernelCpuSeconds": 43.953,
+    "cpuConsumptionPercent": 9.66876,
+    "maxRss": 901615616,
+    "pageFaults": {
+      "IORequired": 1237002,
+      "IONotRequired": 0
+    },
+    "fsActivity": {
+      "reads": 10062,
+      "writes": 27
+    }
+  },
+  "libuv": [
+  ],
+  "environmentVariables": {
+    "ALLUSERSPROFILE": "C:\\ProgramData",
+    "APPDATA": "C:\\Users\\ektiv\\AppData\\Roaming",
+    "APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL": "true",
+    "BROWSERSLIST_IGNORE_OLD_DATA": "1",
+    "ChocolateyInstall": "C:\\ProgramData\\chocolatey",
+    "ChocolateyLastPathUpdate": "132185981282264262",
+    "CommonProgramFiles": "C:\\Program Files\\Common Files",
+    "CommonProgramFiles(x86)": "C:\\Program Files (x86)\\Common Files",
+    "CommonProgramW6432": "C:\\Program Files\\Common Files",
+    "COMPUTERNAME": "DESKTOP-SEQBUVB",
+    "ComSpec": "C:\\Windows\\system32\\cmd.exe",
+    "DriverData": "C:\\Windows\\System32\\Drivers\\DriverData",
+    "FPS_BROWSER_APP_PROFILE_STRING": "Internet Explorer",
+    "FPS_BROWSER_USER_PROFILE_STRING": "Default",
+    "HOMEDRIVE": "C:",
+    "HOMEPATH": "\\Users\\ektiv",
+    "LOCALAPPDATA": "C:\\Users\\ektiv\\AppData\\Local",
+    "LOGONSERVER": "\\\\DESKTOP-SEQBUVB",
+    "MOZ_PLUGIN_PATH": "C:\\Program Files\\Tracker Software\\PDF Viewer\\Win32\\",
+    "MSMPI_BIN": "C:\\Program Files\\Microsoft MPI\\Bin\\",
+    "NUMBER_OF_PROCESSORS": "8",
+    "OneDrive": "C:\\Users\\ektiv\\OneDrive",
+    "OS": "Windows_NT",
+    "Path": "C:\\ProgramData\\DockerDesktop\\version-bin;C:\\Program Files\\Docker\\Docker\\Resources\\bin;C:\\Program Files\\Microsoft MPI\\Bin\\;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\iCLS\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\iCLS\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\dotnet\\;C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\140\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\140\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\140\\DTS\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\140\\DTS\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\130\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\DTS\\Binn\\;C:\\Program Files (x86)\\IncrediBuild;C:\\Program Files\\PuTTY\\;C:\\Program Files (x86)\\dotnet\\;C:\\Program Files\\nodejs\\;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\Git\\cmd;C:\\Users\\ektiv\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\ektiv\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\ektiv\\.dotnet\\tools;C:\\Users\\ektiv\\AppData\\Local\\Programs\\Fiddler;C:\\Users\\ektiv\\AppData\\Roaming\\npm;C:\\Users\\ektiv\\AppData\\Local\\GitHubDesktop\\bin",
+    "PATHEXT": ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL",
+    "PROCESSOR_ARCHITECTURE": "AMD64",
+    "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 142 Stepping 10, GenuineIntel",
+    "PROCESSOR_LEVEL": "6",
+    "PROCESSOR_REVISION": "8e0a",
+    "ProgramData": "C:\\ProgramData",
+    "ProgramFiles": "C:\\Program Files",
+    "ProgramFiles(x86)": "C:\\Program Files (x86)",
+    "ProgramW6432": "C:\\Program Files",
+    "PROMPT": "$P$G",
+    "PSModulePath": "C:\\Users\\ektiv\\Documents\\WindowsPowerShell\\Modules;C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules;C:\\Program Files (x86)\\Microsoft SQL Server\\140\\Tools\\PowerShell\\Modules\\",
+    "PUBLIC": "C:\\Users\\Public",
+    "SESSIONNAME": "Console",
+    "SystemDrive": "C:",
+    "SystemRoot": "C:\\Windows",
+    "TEMP": "C:\\Users\\ektiv\\AppData\\Local\\Temp",
+    "TMP": "C:\\Users\\ektiv\\AppData\\Local\\Temp",
+    "USERDOMAIN": "DESKTOP-SEQBUVB",
+    "USERDOMAIN_ROAMINGPROFILE": "DESKTOP-SEQBUVB",
+    "USERNAME": "ektiv",
+    "USERPROFILE": "C:\\Users\\ektiv",
+    "VBOX_MSI_INSTALL_PATH": "C:\\Program Files\\Oracle\\VirtualBox\\",
+    "WEBPACK_DEV_SERVER": "true",
+    "windir": "C:\\Windows",
+    "TERM_PROGRAM": "vscode",
+    "TERM_PROGRAM_VERSION": "1.45.1",
+    "LANG": "en_US.UTF-8",
+    "COLORTERM": "truecolor",
+    "VSCODE_GIT_IPC_HANDLE": "\\\\.\\pipe\\vscode-git-0d9a69cdab-sock",
+    "GIT_ASKPASS": "c:\\Users\\ektiv\\AppData\\Local\\Programs\\Microsoft VS Code\\resources\\app\\extensions\\git\\dist\\askpass.sh",
+    "VSCODE_GIT_ASKPASS_NODE": "C:\\Users\\ektiv\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+    "VSCODE_GIT_ASKPASS_MAIN": "c:\\Users\\ektiv\\AppData\\Local\\Programs\\Microsoft VS Code\\resources\\app\\extensions\\git\\dist\\askpass-main.js"
+  },
+  "sharedObjects": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\Windows\\SYSTEM32\\ntdll.dll",
+    "C:\\Windows\\System32\\KERNEL32.DLL",
+    "C:\\Windows\\System32\\KERNELBASE.dll",
+    "C:\\Windows\\System32\\WS2_32.dll",
+    "C:\\Windows\\System32\\RPCRT4.dll",
+    "C:\\Windows\\SYSTEM32\\dbghelp.dll",
+    "C:\\Windows\\System32\\ADVAPI32.dll",
+    "C:\\Windows\\System32\\ucrtbase.dll",
+    "C:\\Windows\\System32\\msvcrt.dll",
+    "C:\\Windows\\System32\\sechost.dll",
+    "C:\\Windows\\System32\\USER32.dll",
+    "C:\\Windows\\System32\\win32u.dll",
+    "C:\\Windows\\System32\\GDI32.dll",
+    "C:\\Windows\\System32\\gdi32full.dll",
+    "C:\\Windows\\System32\\msvcp_win.dll",
+    "C:\\Windows\\System32\\PSAPI.DLL",
+    "C:\\Windows\\System32\\CRYPT32.dll",
+    "C:\\Windows\\System32\\MSASN1.dll",
+    "C:\\Windows\\SYSTEM32\\IPHLPAPI.DLL",
+    "C:\\Windows\\System32\\bcrypt.dll",
+    "C:\\Windows\\SYSTEM32\\USERENV.dll",
+    "C:\\Windows\\System32\\profapi.dll",
+    "C:\\Windows\\SYSTEM32\\WINMM.dll",
+    "C:\\Windows\\SYSTEM32\\WINMMBASE.dll",
+    "C:\\Windows\\System32\\cfgmgr32.dll",
+    "C:\\Windows\\System32\\IMM32.DLL",
+    "C:\\Windows\\System32\\powrprof.dll",
+    "C:\\Windows\\system32\\uxtheme.dll",
+    "C:\\Windows\\System32\\combase.dll",
+    "C:\\Windows\\System32\\bcryptPrimitives.dll",
+    "C:\\Windows\\system32\\mswsock.dll",
+    "C:\\Windows\\System32\\kernel.appcore.dll",
+    "C:\\Windows\\SYSTEM32\\CRYPTBASE.DLL",
+    "C:\\Windows\\System32\\NSI.dll",
+    "C:\\Windows\\SYSTEM32\\dhcpcsvc6.DLL",
+    "C:\\Windows\\SYSTEM32\\dhcpcsvc.DLL",
+    "C:\\Windows\\SYSTEM32\\DNSAPI.dll",
+    "C:\\Windows\\System32\\rasadhlp.dll",
+    "C:\\Windows\\System32\\fwpuclnt.dll"
+  ]
+}

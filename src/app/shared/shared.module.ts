@@ -51,6 +51,7 @@ import { ProductsCarouselComponent } from './products-carousel/products-carousel
 import { ProductDialogComponent } from './products-carousel/product-dialog/product-dialog.component';
 import { BannersComponent } from './banners/banners.component';
 import { CategoryListComponent } from './category-list/category-list.component';
+import { OnlyRatingComponent } from './only-rating/only-rating.component';
 
 @NgModule({
   imports: [
@@ -130,6 +131,7 @@ import { CategoryListComponent } from './category-list/category-list.component';
     PerfectScrollbarModule,
     PipesModule,
     RatingComponent,
+    OnlyRatingComponent,
     ControlsComponent,
     MainCarouselComponent,
     BrandsCarouselComponent,
@@ -146,7 +148,8 @@ import { CategoryListComponent } from './category-list/category-list.component';
     ProductsCarouselComponent,
     ProductDialogComponent,
     BannersComponent,
-    CategoryListComponent
+    CategoryListComponent,
+    OnlyRatingComponent
   ],
   entryComponents:[
     ProductDialogComponent

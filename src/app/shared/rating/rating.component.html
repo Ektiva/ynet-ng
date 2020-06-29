@@ -2,5 +2,11 @@
     <div class="ratings">        
          <mat-icon *ngFor="let star of stars; let i=index;" class="mat-icon-xs" (click)="rate(i)">{{star}}</mat-icon>
     </div>
-    <p class="ratings-count text-muted">{{ratingsCount}} ratings</p>
+    <p *ngIf="ratingsCount > 0" class="ratings-count text-muted">{{ratingsCount}} ratings</p>   
+</div>
+<div *ngIf="ratingsCount == 0" [fxLayout]="direction" [fxLayoutAlign]="(direction == 'row') ? 'start center' : 'center end'">    
+    <div class="ratings">        
+         <mat-icon  class="mat-icon-xs" >star_border</mat-icon>
+    </div>
+    <p class="ratings-count text-muted">No ratings yet for this product!</p>  
 </div>

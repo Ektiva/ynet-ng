@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Category, Product, IPagination, IBrand, IProduct } from './app.models';
+import { Category, Product, IPagination, IBrand, IProduct, CategoryLevel } from './app.models';
 import { map, delay } from 'rxjs/operators';
 import { ICategory } from './shared/models/category';
 import { ShopParams } from "./shared/models/ShopParams";
@@ -13,7 +13,8 @@ export class Data {
                 public wishList: Product[],
                 public cartList: Product[],
                 public totalPrice: number,
-                public totalCartCount: number) { }
+                public totalCartCount: number,
+                public categoryLevel1: Category[]) { }
 }
 
 @Injectable({
@@ -26,7 +27,8 @@ export class AppService {
         [],  // wishList
         [],  // cartList
         null, //totalPrice,
-        0 //totalCartCount
+        0, //totalCartCount
+        [] //categoryLevel
     )
     
     totalCount = new BehaviorSubject<number>(0);
@@ -68,10 +70,32 @@ export class AppService {
     }
     
     public getCategories(): Observable<Category[]>{
-         // return this.http.get<Category[]>(this.url + 'categories.json');
         return this.http.get<Category[]>(this.baseUrl + 'Category');
     }
+
+    public getCategoryLevel(level): Observable<Category[]>{
+       return this.http.get<Category[]>(this.baseUrl + 'Category/GetCategory/level?id='+level);
+   }
    
+    public getCategoriesLevel(): CategoryLevel{
+        var Level1, Level2, Level3;
+        this.http.get<Category[]>(this.baseUrl + 'Category/GetCategory/level?id=2').subscribe(data => {
+            Level1 = data;
+            console.log(Level1[0].name);
+        });
+        this.http.get<Category[]>(this.baseUrl + 'Category/GetCategory/level?id=3').subscribe(data => {
+            Level2 = data;
+        });
+        this.http.get<Category[]>(this.baseUrl + 'Category/GetCategory/level?id=4').subscribe(data => {
+            Level3 = data;
+        });
+
+        var categoryLevel = new CategoryLevel(Level1, Level2, Level3);
+
+        return categoryLevel;
+   }
+   
+
     public getProducts(type): Observable<Product[]>{        
         return this.http.get<Product[]>(this.url + type + '-products.json');
     }
@@ -112,6 +136,15 @@ export class AppService {
           );
     }
 
+    public getItem(id: number) {
+        // const product = this.products.find(p => p.id === id);
+    
+        // if (product) {
+        //   return of(product);
+        // }
+    
+        return this.http.get<IProduct>(this.baseUrl + 'items/' + id);
+    }
     
     getBrandss() {
     // if (this.brands.length > 0) {
