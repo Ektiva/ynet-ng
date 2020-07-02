@@ -7,6 +7,7 @@ import { Product, Category, IBrand, IProduct } from "../../app.models";
 import { Settings, AppSettings } from 'src/app/app.settings';
 import { ICategory } from 'src/app/shared/models/category';
 import { ShopParams } from "src/app/shared/models/ShopParams";
+import { CartService } from '../cart/cart.service';
 
 @Component({
   selector: 'app-products',
@@ -80,11 +81,12 @@ export class ProductsComponent implements OnInit {
   ]; 
   public page:any;
   public settings: Settings;
-  constructor(public appSettings:AppSettings, 
-              private activatedRoute: ActivatedRoute, 
-              public appService:AppService, 
-              public dialog: MatDialog, 
-              private router: Router
+  constructor(
+    public appSettings:AppSettings, 
+    private activatedRoute: ActivatedRoute, 
+    public appService:AppService,
+    public dialog: MatDialog, 
+    private router: Router
               ) {
     this.settings = this.appSettings.settings;
   }
@@ -114,6 +116,7 @@ export class ProductsComponent implements OnInit {
     this.appService.currentTotalCount.subscribe(totalCount => this.totalCount = totalCount);
     this.appService.currentPage.subscribe(page => this.page = page);
     // End adding
+    
   }
 
   // Added by me
@@ -145,7 +148,6 @@ export class ProductsComponent implements OnInit {
 
   public getCategories(){  
     if(this.appService.Data.categories.length == 0) { 
-      console.log(this.appService.Data.categories.length);
       this.appService.getCategories().subscribe(data => {
         this.categories = data;
         this.appService.Data.categories = data;
@@ -198,7 +200,6 @@ export class ProductsComponent implements OnInit {
     this.appService.changeShopParams(this.shopParams);
     this.getItems();
     this.page = 1;
-      console.log('PageChanged category ');
   }
 
   // onCategorySelected(categoryId: number) {

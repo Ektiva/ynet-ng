@@ -1,11 +1,12 @@
-<div *ngIf="appService.Data.cartList.length == 0">
+<!-- *ngIf="appService.Data.cartList.length == 0" -->
+<div *ngIf="(cart$ | async) === null" >
   <mat-chip-list>
       <mat-chip color="warn" selected="true">YOU HAVE NO ITEMS IN YOUR SHOPPING CART.</mat-chip>
   </mat-chip-list>
   <a [routerLink]="['/']" mat-raised-button color="primary" class="mt-2">Continue shopping</a>
 </div>
-
-<mat-card *ngIf="appService.Data.cartList?.length > 0" class="p-0">
+<!-- *ngIf="appService.Data.cartList?.length > 0" -->
+<mat-card *ngIf="(cart$ | async) as cart" class="p-0">
 
   <div class="mat-table cart-table">
     <div class="mat-header-row">
@@ -20,17 +21,36 @@
         </div>
       </div>
     </div>
-    <div *ngFor="let product of appService.Data.cartList" class="mat-row">
-      <div class="mat-cell"><img [src]="product.images[0].small"></div>
-      <div class="mat-cell"><a [routerLink]="['/products', product.id, product.name]" class="product-name">{{product.name}}</a></div>
-      <div class="mat-cell">${{product.newPrice | number : '1.2-2'}}</div>      
-      <div class="mat-cell text-muted">
-        <app-controls [product]="product" [type]="'wish'" (onQuantityChange)="updateCart($event)"></app-controls>
+    <!-- *ngFor="let product of appService.Data.cartList" -->
+    <div *ngFor="let product of (cart$ | async).items" class="mat-row">
+      <div [routerLink]="['/products', product.id, product.productName]" class="mat-cell"><img [src]="product.pictureUrl"></div>
+      <div class="mat-cell">
+        <a [routerLink]="['/products', product.id, product.productName]" class="product-name">
+          {{product.productName}}
+        </a>
+        <span
+            *ngIf="product.category"
+            class="text-muted font-weight-normal font-italic d-block">
+            {{product.category}}
+        </span>
       </div>
-      <div class="mat-cell">${{total[product.id] | number : '1.2-2'}}</div>
+      <div class="mat-cell">${{product.price | number : '1.2-2'}}</div>      
+      <div class="mat-cell text-muted">
+          <div >
+              <bdi>
+                  <button mat-icon-button matTooltip="Remove" (click)="decrementItemQuantity(product)"><mat-icon>remove_circle_outline</mat-icon></button>
+                  <span> {{product.quantity}} </span>
+                  <button mat-icon-button matTooltip="Add" (click)="incrementItemQuantity(product)"><mat-icon>add_circle_outline</mat-icon></button>
+              </bdi>
+          </div>
+
+        <!-- <app-controls [product]="product" [type]="'wish'" [quantity]="product.quantity" (onQuantityChange)="updateCart($event)"></app-controls> -->
+      </div>
+      <!-- ${{total[product.id] | number : '1.2-2'}} -->
+      <div class="mat-cell">{{product.price | currency}}</div>
       <div class="mat-cell text-center">
         <div class="p-1">
-          <button mat-mini-fab color="warn" (click)="remove(product)" matTooltip="Clear">
+          <button mat-mini-fab color="warn" (click)="removeCartItem(product)" matTooltip="Clear">
               <mat-icon>close</mat-icon>
           </button>
         </div>
@@ -50,13 +70,20 @@
       </div>
       <div class="mat-cell">
         <div fxLayout="column" fxLayoutAlign="center start" class="grand-total">
-          <span>${{ grandTotal | number : '1.2-2'}}</span>
+          <!-- ${{ grandTotal | number : '1.2-2'}} -->
+          <span>{{(cartTotals$ | async).subtotal}}</span>
           <span class="text-muted">15%</span>
-          <span class="new-price">${{ (grandTotal - (grandTotal*0.15)) | number : '1.2-2'}}</span>
+          <span class="new-price">${{ ((cartTotals$ | async).subtotal - ((cartTotals$ | async).subtotal*0.15)) | number : '1.2-2'}}</span>
         </div>
       </div>
       <div class="mat-cell text-center"><a [routerLink]="['/checkout']" mat-raised-button color="primary">Proceed To Checkout</a></div>
     </div>
+    <!-- <app-order-totals 
+          *ngIf="(cartTotals$ | async)"
+          [shippingPrice]="(cartTotals$ | async).shipping"
+          [subtotal]="(cartTotals$ | async).subtotal" 
+          [total]="(cartTotals$ | async).total">
+    </app-order-totals> -->
   </div>
 
 </mat-card>

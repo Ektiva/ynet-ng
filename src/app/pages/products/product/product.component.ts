@@ -7,6 +7,7 @@ import { Data, AppService } from '../../../app.service';
 import { Product } from "../../../app.models";
 import { emailValidator } from '../../../theme/utils/app-validators';
 import { ProductZoomComponent } from './product-zoom/product-zoom.component';
+import { CartService } from '../../cart/cart.service';
 
 @Component({
   selector: 'app-product',
@@ -23,8 +24,15 @@ export class ProductComponent implements OnInit {
   private sub: any;
   public form: FormGroup;
   public relatedProducts: Array<Product>;
+  quantity = 1;
 
-  constructor(public appService:AppService, private activatedRoute: ActivatedRoute, public dialog: MatDialog, public formBuilder: FormBuilder) {  }
+  constructor(
+    public appService:AppService, 
+    private activatedRoute: ActivatedRoute, 
+    public dialog: MatDialog, 
+    public formBuilder: FormBuilder,
+    private cartService: CartService
+    ) {  }
 
   ngOnInit() {      
     this.sub = this.activatedRoute.params.subscribe(params => { 
@@ -59,6 +67,28 @@ export class ProductComponent implements OnInit {
       }
     }
   }
+
+  addItemToCart() {
+    this.cartService.addItemToCart(this.product, this.quantity);
+  }
+
+  incrementQuantity() {
+    this.quantity++;
+  }
+
+  decrementQuantity() {
+    if (this.quantity > 1) {
+      this.quantity--;
+    }
+  }
+  public addToCompare(product:Product){
+    this.appService.addToCompare(product);
+  }
+
+  public addToWishList(product:Product){
+    this.appService.addToWishList(product);
+  }
+
 
   public getProductById(id){
     this.appService.getItem(id).subscribe(data=>{

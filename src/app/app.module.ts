@@ -30,7 +30,6 @@ import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 import { LoadingInterceptor } from './core/interceptors/loading.interceptor';
 import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 
-
 @NgModule({
    imports: [
     BrowserModule,

@@ -39,7 +39,7 @@ import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   wheelPropagation: true,
-  suppressScrollX: true               
+  suppressScrollX: true
 };
 
 import { PipesModule } from '../theme/pipes/pipes.module';
@@ -52,6 +52,7 @@ import { ProductDialogComponent } from './products-carousel/product-dialog/produ
 import { BannersComponent } from './banners/banners.component';
 import { CategoryListComponent } from './category-list/category-list.component';
 import { OnlyRatingComponent } from './only-rating/only-rating.component';
+import { OrderTotalsComponent } from './components/order-totals/order-totals.component';
 
 @NgModule({
   imports: [
@@ -138,6 +139,7 @@ import { OnlyRatingComponent } from './only-rating/only-rating.component';
     ProductsCarouselComponent,
     ProductDialogComponent,
     BannersComponent,
+    OrderTotalsComponent,
     CategoryListComponent
   ],
   declarations: [
@@ -149,7 +151,8 @@ import { OnlyRatingComponent } from './only-rating/only-rating.component';
     ProductDialogComponent,
     BannersComponent,
     CategoryListComponent,
-    OnlyRatingComponent
+    OnlyRatingComponent,
+    OrderTotalsComponent
   ],
   entryComponents:[
     ProductDialogComponent

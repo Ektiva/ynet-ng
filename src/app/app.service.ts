@@ -209,8 +209,8 @@ export class AppService {
     } 
 
     public addToCart(product:Product){
-        let message, status;        
-       
+        let message, status;
+
         this.Data.totalPrice = null;
         this.Data.totalCartCount = null;
 
@@ -225,6 +225,9 @@ export class AppService {
             this.Data.totalPrice = this.Data.totalPrice + (product.cartCount * product.newPrice);
             this.Data.totalCartCount = this.Data.totalCartCount + product.cartCount;
         });
+
+        //Added
+        
 
         message = 'The product ' + product.name + ' has been added to cart.'; 
         status = 'success';          

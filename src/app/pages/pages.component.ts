@@ -6,6 +6,9 @@ import { Category, Product, IProduct } from '../app.models';
 import { SidenavMenuService } from '../theme/components/sidenav-menu/sidenav-menu.service';
 import { ShopParams } from '../shared/models/ShopParams';
 import { tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { ICart, ICartTotals } from '../shared/models/cart';
+import { CartService } from './cart/cart.service';
 
 @Component({
   selector: 'app-pages',
@@ -14,9 +17,12 @@ import { tap } from 'rxjs/operators';
   providers: [ SidenavMenuService ]
 })
 export class PagesComponent implements OnInit {
+  cart$: Observable<ICart>;
+  cartTotals$: Observable<ICartTotals>;
+  // currentUser$: Observable<IUser>;
 
   @ViewChild('search', {static: true}) searchTerm: ElementRef;
-  
+
   public products: Array<IProduct> = [];
   public categorySelected: number;
   public categoryNameSelected = 'All Categories';
@@ -36,7 +42,10 @@ export class PagesComponent implements OnInit {
   constructor(public appSettings:AppSettings, 
               public appService:AppService, 
               public sidenavMenuService:SidenavMenuService,
-              public router:Router) { 
+              public router:Router,
+              private cartService: CartService
+    // private accountService: AccountService
+              ) { 
     this.settings = this.appSettings.settings; 
   }
   
@@ -45,6 +54,11 @@ export class PagesComponent implements OnInit {
     this.appService.currentCategory.subscribe(category => this.categoryNameSelected = category);
     // this.getItems();
     this.sidenavMenuItems = this.sidenavMenuService.getSidenavMenuItems();
+    
+    this.cart$ = this.cartService.cart$;
+    this.cartTotals$ = this.cartService.cartTotal$;
+    console.log(this.cartTotals$);
+    // this.currentUser$ = this.accountService.currentUser$;
   } 
 
   
@@ -218,5 +232,9 @@ export class PagesComponent implements OnInit {
       this.appService.changeProducts(res.data);
       this.appService.changeTotalCount(this.totalCount);
     });
+  }
+
+  logout() {
+    // this.accountService.logout();
   }
 }

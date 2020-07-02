@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../app.service';
-import { Product, IBrand } from "../../app.models";
+import { Product, IBrand } from '../../app.models';
 
 @Component({
   selector: 'app-home',
@@ -30,36 +30,36 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.getBanners();
-    this.getProducts("featured");
+    this.getProducts('featured');
     this.getBrands();
   }
 
   public onLinkClick(e){
-    this.getProducts(e.tab.textLabel.toLowerCase()); 
+    this.getProducts(e.tab.textLabel.toLowerCase());
   }
 
   public getProducts(type){
-    if(type == "featured" && !this.featuredProducts){
-      this.appService.getProducts("featured").subscribe(data=>{
-        this.featuredProducts = data;      
-      }) 
-    }
-    if(type == "on sale" && !this.onSaleProducts){
-      this.appService.getProducts("on-sale").subscribe(data=>{
-        this.onSaleProducts = data;      
+    if(type === 'featured' && !this.featuredProducts){
+      this.appService.getProducts('featured').subscribe(data=>{
+        this.featuredProducts = data;
       })
     }
-    if(type == "top rated" && !this.topRatedProducts){
-      this.appService.getProducts("top-rated").subscribe(data=>{
-        this.topRatedProducts = data;      
+    if(type === 'on sale' && !this.onSaleProducts){
+      this.appService.getProducts('on-sale').subscribe(data=>{
+        this.onSaleProducts = data;
       })
     }
-    if(type == "new arrivals" && !this.newArrivalsProducts){
-      this.appService.getProducts("new-arrivals").subscribe(data=>{
-        this.newArrivalsProducts = data;      
+    if(type === 'top rated' && !this.topRatedProducts){
+      this.appService.getProducts('top-rated').subscribe(data=>{
+        this.topRatedProducts = data;
       })
     }
-   
+    if(type === 'new arrivals' && !this.newArrivalsProducts){
+      this.appService.getProducts('new arrivals').subscribe(data=>{
+        this.newArrivalsProducts = data;
+      })
+    }
+
   }
 
   public getBanners(){
@@ -77,9 +77,9 @@ export class HomeComponent implements OnInit {
     console.log('I am here');
     this.appService.getBrandss().subscribe(response => {
       this.brands = response /*[{ id: 0, name: 'All' }, ...response]*/;
-      this.brands.forEach(function (value){
-        console.log(value.imageUrl);
-      });
+      // this.brands.forEach(function (value){
+      //   console.log(value.imageUrl);
+      // });
     }, error => {
       console.log(error);
     });

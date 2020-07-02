@@ -1,0 +1,25 @@
+<div class="mat-row">
+    <div class="mat-cell"><a [routerLink]="['/']" mat-raised-button color="primary">Continue shopping</a></div>
+    <!-- <div class="bg-light px-4 text-uppercase font-weight-bold" style="padding: 1.20em;">
+        Order Summary
+    </div> -->
+    <div class="mat-cell"></div>
+    <div class="mat-cell"></div>
+    <div class="mat-cell text-right">
+    <div fxLayout="column" fxLayoutAlign="center end" class="grand-total px-2">
+        <span>SubTotal:</span>
+        <span>Shipping and Handling:</span>
+        <span class="text-muted">Discount:</span>
+        <span class="new-price">Grand total:</span>
+    </div>        
+    </div>
+    <div class="mat-cell">
+    <div fxLayout="column" fxLayoutAlign="center start" class="grand-total">
+        <span>{{subtotal | currency}}</span>
+        <span>{{shippingPrice | currency}}</span>
+        <span class="text-muted">15%</span>
+        <span class="new-price">${{ (total - (total*0.15)) | number : '1.2-2'}}</span>
+    </div>
+    </div>
+    <div class="mat-cell text-center"><a [routerLink]="['/checkout']" mat-raised-button color="primary">Proceed To Checkout</a></div>
+</div>

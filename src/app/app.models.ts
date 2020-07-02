@@ -44,7 +44,9 @@ export class IProduct {
               public reviews: Array<any>,
               public weight: number,
               public categoryId: number,
-              public brandName: string){ }
+              public brandName: string,
+              public categoryName: string,
+              public pictureUrl: string){ }
 }
 
 export class Product {
@@ -66,7 +68,9 @@ export class Product {
               public reviews: Array<any>,
               public weight: number,
               public categoryId: number,
-              public brandName: string){ }
+              public brandName: string,
+              public categoryName: string,
+              public pictureUrl: string){ }
 }
 
 export interface IBrand {
